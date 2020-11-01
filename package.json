@@ -1,0 +1,64 @@
+{
+  "name": "bdd-atdd-tdd-clean-architecture-debutant",
+  "version": "0.0.0",
+  "description": "Démo BDD/ATDD/TDD/Clean Architecture",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test:all",
+    "test:acceptance": "mocha 'src/tests/acceptance/*.spec.ts'",
+    "test:integration": "mocha 'src/tests/integration/*.spec.ts'",
+    "test:all": "mocha 'src/tests/**/*.spec.ts'",
+    "cover:acceptance": "nyc npm run test:acceptance",
+    "cover:integration": "nyc npm run test:integration",
+    "cover:all": "nyc npm run test:all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/bbohec/bdd-atdd-tdd-clean-architecture-debutant.git"
+  },
+  "author": "Benjamin Bohec",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://gitlab.com/bbohec/bdd-atdd-tdd-clean-architecture-debutant/issues"
+  },
+  "homepage": "https://gitlab.com/bbohec/bdd-atdd-tdd-clean-architecture-debutant#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/chai": "^4.2.14",
+    "@types/mocha": "^8.0.3",
+    "@typescript-eslint/eslint-plugin": "^4.6.0",
+    "@typescript-eslint/parser": "^4.6.0",
+    "chai": "^4.2.0",
+    "eslint": "^7.12.1",
+    "mocha": "^8.2.0",
+    "source-map-support": "^0.5.19",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.5"
+  },
+  "mocha": {
+    "reporter": "spec",
+    "full-trace": true,
+    "require": [
+      "ts-node/register",
+      "source-map-support/register"
+    ]
+  },
+  "nyc": {
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "exclude": [
+      "**/*.d.ts",
+      "coverage/",
+      "dist/",
+      "tests"
+    ],
+    "reporter": [
+      "html",
+      "text",
+      "lcov"
+    ],
+    "all": true
+  }
+}
